@@ -23,6 +23,14 @@ If the replacement text is longer than the original, the out of range characters
 as the last in range character's case.
 I.e. if you replace MauL with vader the replacement will be VadER.
 
+## Replacing multiple entry values
+A file can be created with the following format:  
+
+value1::newvalue1  
+value2::newvalue2  
+
+This file can be loaded and all values will be replaced. At the moment all replacements are case-sensitive and applied only to whole words
+
 ### IMPORTANT
 Entry values starting with "ID_" will NEVER be mass replaced to avoid problems with Star Cards in Battlefront 2.
 
