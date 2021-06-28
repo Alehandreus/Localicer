@@ -33,6 +33,7 @@ namespace Localicer
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ToBeReplaced = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@ namespace Localicer
             this.IgnoreCaseSearch = new MetroFramework.Controls.MetroCheckBox();
             this.Search = new Localicer.CustomButton();
             this.Replace = new Localicer.CustomButton();
+            this.ReplaceFromFile = new Localicer.CustomButton();
             this.Save = new Localicer.CustomButton();
             this.Open = new Localicer.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.fastObjectListView1)).BeginInit();
@@ -59,6 +61,10 @@ namespace Localicer
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
             // ToBeReplaced
             // 
             this.ToBeReplaced.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -66,7 +72,7 @@ namespace Localicer
             this.ToBeReplaced.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ToBeReplaced.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.ToBeReplaced.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.ToBeReplaced.Location = new System.Drawing.Point(710, 17);
+            this.ToBeReplaced.Location = new System.Drawing.Point(610, 17);
             this.ToBeReplaced.Name = "ToBeReplaced";
             this.ToBeReplaced.Size = new System.Drawing.Size(100, 23);
             this.ToBeReplaced.TabIndex = 3;
@@ -77,7 +83,7 @@ namespace Localicer
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label1.Location = new System.Drawing.Point(658, 19);
+            this.label1.Location = new System.Drawing.Point(558, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 15);
             this.label1.TabIndex = 4;
@@ -89,7 +95,7 @@ namespace Localicer
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label2.Location = new System.Drawing.Point(816, 19);
+            this.label2.Location = new System.Drawing.Point(716, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 15);
             this.label2.TabIndex = 6;
@@ -102,7 +108,7 @@ namespace Localicer
             this.ToBeReplacedWith.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ToBeReplacedWith.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.ToBeReplacedWith.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.ToBeReplacedWith.Location = new System.Drawing.Point(852, 17);
+            this.ToBeReplacedWith.Location = new System.Drawing.Point(752, 17);
             this.ToBeReplacedWith.Name = "ToBeReplacedWith";
             this.ToBeReplacedWith.Size = new System.Drawing.Size(100, 23);
             this.ToBeReplacedWith.TabIndex = 5;
@@ -114,7 +120,7 @@ namespace Localicer
             this.IgnoreCaseReplace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IgnoreCaseReplace.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.IgnoreCaseReplace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.IgnoreCaseReplace.Location = new System.Drawing.Point(710, 46);
+            this.IgnoreCaseReplace.Location = new System.Drawing.Point(610, 46);
             this.IgnoreCaseReplace.Name = "IgnoreCaseReplace";
             this.IgnoreCaseReplace.Size = new System.Drawing.Size(83, 15);
             this.IgnoreCaseReplace.TabIndex = 7;
@@ -131,7 +137,7 @@ namespace Localicer
             this.ApplyReplacedCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ApplyReplacedCase.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.ApplyReplacedCase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.ApplyReplacedCase.Location = new System.Drawing.Point(710, 67);
+            this.ApplyReplacedCase.Location = new System.Drawing.Point(610, 67);
             this.ApplyReplacedCase.Name = "ApplyReplacedCase";
             this.ApplyReplacedCase.Size = new System.Drawing.Size(159, 15);
             this.ApplyReplacedCase.TabIndex = 8;
@@ -160,7 +166,7 @@ namespace Localicer
             this.SearchText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.SearchText.Location = new System.Drawing.Point(185, 17);
             this.SearchText.Name = "SearchText";
-            this.SearchText.Size = new System.Drawing.Size(376, 23);
+            this.SearchText.Size = new System.Drawing.Size(276, 23);
             this.SearchText.TabIndex = 12;
             this.SearchText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchText_KeyDown);
             // 
@@ -244,7 +250,7 @@ namespace Localicer
             this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.Search.Location = new System.Drawing.Point(567, 17);
+            this.Search.Location = new System.Drawing.Point(467, 17);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(75, 23);
             this.Search.TabIndex = 13;
@@ -260,13 +266,29 @@ namespace Localicer
             this.Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Replace.Font = new System.Drawing.Font("Segoe UI Light", 9F);
             this.Replace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.Replace.Location = new System.Drawing.Point(960, 17);
+            this.Replace.Location = new System.Drawing.Point(860, 17);
             this.Replace.Name = "Replace";
             this.Replace.Size = new System.Drawing.Size(75, 23);
             this.Replace.TabIndex = 2;
             this.Replace.Text = "Replace";
             this.Replace.UseVisualStyleBackColor = false;
             this.Replace.Click += new System.EventHandler(this.Replace_Click);
+            // 
+            // Replace from file
+            // 
+            this.ReplaceFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ReplaceFromFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.ReplaceFromFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ReplaceFromFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReplaceFromFile.Font = new System.Drawing.Font("Segoe UI Light", 9F);
+            this.ReplaceFromFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.ReplaceFromFile.Location = new System.Drawing.Point(945, 17);
+            this.ReplaceFromFile.Name = "ReplaceFromFile";
+            this.ReplaceFromFile.Size = new System.Drawing.Size(75, 23);
+            this.ReplaceFromFile.TabIndex = 2;
+            this.ReplaceFromFile.Text = "Load file";
+            this.ReplaceFromFile.UseVisualStyleBackColor = false;
+            this.ReplaceFromFile.Click += new System.EventHandler(this.ReplaceFromFile_Click);
             // 
             // Save
             // 
@@ -315,6 +337,7 @@ namespace Localicer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ToBeReplaced);
             this.Controls.Add(this.Replace);
+            this.Controls.Add(this.ReplaceFromFile);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.Open);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -331,12 +354,14 @@ namespace Localicer
         }
 
         #endregion
-
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        
+        private System.Windows.Forms.OpenFileDialog openFileDialog1; // open localization chunk
+        private System.Windows.Forms.OpenFileDialog openFileDialog2; // open replace file (txt)
         private Localicer.CustomButton Open;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private CustomButton Save;
         private CustomButton Replace;
+        private CustomButton ReplaceFromFile;
         private System.Windows.Forms.TextBox ToBeReplaced;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

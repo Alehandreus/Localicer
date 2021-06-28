@@ -29,5 +29,10 @@ namespace Localicer
             ClosingEditor?.Invoke(Text.Text);
             this.Close();
         }
+
+        private void Text_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

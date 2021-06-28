@@ -10,6 +10,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -124,6 +125,46 @@ namespace Localicer
 
             fastObjectListView1.RedrawItems(0, fastObjectListView1.Items.Count-1, true);
             Message.Text = $"Replaced {occurrencesChanged} occurrences in {entriesChanged} entries";
+        }
+
+        private void ReplaceFromFile_Click(object sender, EventArgs e)
+        {
+            openFileDialog2.Filter = "txt files|*.txt";
+            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string path = openFileDialog2.FileName;
+                    Stream fileStream = openFileDialog2.OpenFile();
+                    StreamReader streamReader = new StreamReader(fileStream);
+
+                    string splitSymbols = "::";
+                    string line, toBeReplacedStr = "", toBeReplacedWithStr = "";
+                    string[] splittedLine;
+
+                    while ((line = streamReader.ReadLine()) != null)
+                    {
+                        splittedLine = line.Split(splitSymbols.ToCharArray());
+                        toBeReplacedStr = splittedLine[0];
+                        toBeReplacedWithStr = splittedLine[2];
+                        Console.WriteLine(toBeReplacedStr);
+                        Console.WriteLine(toBeReplacedWithStr);
+
+                        for (int i = 0; i < entries.Count; i++)
+                        {
+                            string pattern = @"\b" + toBeReplacedStr + @"\b";
+                            entries[i].Value = Regex.Replace(entries[i].Value, pattern, toBeReplacedWithStr);
+                        }
+                    }
+                    fastObjectListView1.RedrawItems(0, fastObjectListView1.Items.Count - 1, true);
+                    streamReader.Close();
+                    fileStream.Close();
+                }
+                catch
+                {
+                    Message.Text = "Something went wrong reading file " + openFileDialog2.FileName;
+                }
+            }
         }
 
         //If the search button or enter key are pressed search the entries and display the items

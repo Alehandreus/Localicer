@@ -50,6 +50,7 @@
             this.Text.Name = "Text";
             this.Text.Size = new System.Drawing.Size(615, 318);
             this.Text.TabIndex = 0;
+            this.Text.TextChanged += new System.EventHandler(this.Text_TextChanged);
             // 
             // Done
             // 
