@@ -1,3 +1,5 @@
+# This is a modified version of [Soembodi](https://github.com/Soembodi)'s [Localicer](https://github.com/Soembodi/Localicer)  
+
 # Local[ice](https://frostytoolsuite.com/)r <img src = "src/Localicer/Frosty.png" width="20px">
 Yet another frostbite localization editor. As all editors I have come across are tedious 
 to work with and can't mass replace all entries at once I decided to make this.
@@ -23,13 +25,17 @@ If the replacement text is longer than the original, the out of range characters
 as the last in range character's case.
 I.e. if you replace MauL with vader the replacement will be VadER.
 
-## Replacing multiple entry values
+## Replacing multiple entry values (new)
 A file can be created with the following format:  
 
 value1::newvalue1  
 value2::newvalue2  
 
 This file can be loaded and all values will be replaced. At the moment all replacements are case-sensitive and applied only to whole words
+
+## Choose encoding (new)
+You now have a choice between two encodings: default and cyrillic. Note that you have to reopen the file after changing the encoding.  
+Warning: cyrillic encoding is not full and break some in-game text
 
 ### IMPORTANT
 Entry values starting with "ID_" will NEVER be mass replaced to avoid problems with Star Cards in Battlefront 2.
