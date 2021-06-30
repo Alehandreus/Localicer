@@ -9,12 +9,23 @@ namespace Localicer
 {
     public static class ChunkFileManipulation
     {
-        private static Encoding enc = new TestEncoding();
+        private static Encoding enc = Encoding.Default;
 
         /*
          Base code for reading/writing was written by VNNCC for his localization editor, Github: https://github.com/VNNCC/FbLocalization    
          I heavily modified it to make it easier to understand and perform better
         */
+
+        public static void ChangeEncoding(string newEncoding)
+        {
+            if(newEncoding == "Default")
+            {
+                enc = Encoding.Default;
+            } else
+            {
+                enc = new TestEncoding();
+            }
+        }
 
         public static void WriteChunkFile(Stream stream, List<Entry> entries)
         {
@@ -156,7 +167,8 @@ namespace Localicer
     }
 
     public class TestEncoding : Encoding
-    {
+    {   
+        Encoding defaultEncoding = Encoding.Default;
         private char[] conversionArray = new[] {
             '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',
             '\n', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',
@@ -230,7 +242,9 @@ namespace Localicer
             for (var i = 0; i < conversionArray.Length; i++)
             {
                 if (conversionArray[i] == c)
+                {
                     return (byte)i;
+                }                
             }
 
             throw new Exception("Invalid character");

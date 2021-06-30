@@ -147,8 +147,6 @@ namespace Localicer
                         splittedLine = line.Split(splitSymbols.ToCharArray());
                         toBeReplacedStr = splittedLine[0];
                         toBeReplacedWithStr = splittedLine[2];
-                        Console.WriteLine(toBeReplacedStr);
-                        Console.WriteLine(toBeReplacedWithStr);
 
                         for (int i = 0; i < entries.Count; i++)
                         {
@@ -166,6 +164,13 @@ namespace Localicer
                 }
             }
         }
+
+        private void EncodingComboBox_Changed(object sender, EventArgs e)
+        {
+            ChunkFileManipulation.ChangeEncoding(this.EncodingComboBox.SelectedItem.ToString());
+            Message.Text = "Encoding changed. Now reopen the file";
+        }
+           
 
         //If the search button or enter key are pressed search the entries and display the items
         private void Search_Click(object sender, EventArgs e)

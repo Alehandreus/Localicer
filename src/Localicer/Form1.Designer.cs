@@ -53,6 +53,8 @@ namespace Localicer
             this.ReplaceFromFile = new Localicer.CustomButton();
             this.Save = new Localicer.CustomButton();
             this.Open = new Localicer.CustomButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.EncodingComboBox = new MetroFramework.Controls.MetroComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.fastObjectListView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +102,18 @@ namespace Localicer
             this.label2.Size = new System.Drawing.Size(30, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "with:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label3.Location = new System.Drawing.Point(185, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Encoding:";
             // 
             // ToBeReplacedWith
             // 
@@ -170,6 +184,19 @@ namespace Localicer
             this.SearchText.TabIndex = 12;
             this.SearchText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchText_KeyDown);
             // 
+            // EncodingComboBox
+            // 
+            this.EncodingComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EncodingComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.EncodingComboBox.Font = new System.Drawing.Font("Segoe UI Light", 9F);
+            this.EncodingComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.EncodingComboBox.Location = new System.Drawing.Point(250, 64);
+            this.EncodingComboBox.Name = "EncodingComboBox";
+            this.EncodingComboBox.Items.AddRange(new string[] { "Default", "Cyrillic" });
+            this.EncodingComboBox.SelectedItem = this.EncodingComboBox.Items[0];
+            this.EncodingComboBox.SelectedIndexChanged += new System.EventHandler(this.EncodingComboBox_Changed);
+            // 
             // fastObjectListView1
             // 
             this.fastObjectListView1.AllColumns.Add(this.Hash);
@@ -189,11 +216,11 @@ namespace Localicer
             this.fastObjectListView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fastObjectListView1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.fastObjectListView1.HideSelection = false;
-            this.fastObjectListView1.Location = new System.Drawing.Point(10, 90);
+            this.fastObjectListView1.Location = new System.Drawing.Point(10, 100);
             this.fastObjectListView1.Name = "fastObjectListView1";
             this.fastObjectListView1.RowHeight = 40;
             this.fastObjectListView1.ShowGroups = false;
-            this.fastObjectListView1.Size = new System.Drawing.Size(1110, 529);
+            this.fastObjectListView1.Size = new System.Drawing.Size(1110, 519);
             this.fastObjectListView1.TabIndex = 14;
             this.fastObjectListView1.UseAlternatingBackColors = true;
             this.fastObjectListView1.UseCompatibleStateImageBehavior = false;
@@ -335,11 +362,13 @@ namespace Localicer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ToBeReplacedWith);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.ToBeReplaced);
             this.Controls.Add(this.Replace);
             this.Controls.Add(this.ReplaceFromFile);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.Open);
+            this.Controls.Add(this.EncodingComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(950, 600);
             this.Name = "Form1";
@@ -365,12 +394,14 @@ namespace Localicer
         private System.Windows.Forms.TextBox ToBeReplaced;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ToBeReplacedWith;
         private MetroCheckBox IgnoreCaseReplace;
         private MetroCheckBox ApplyReplacedCase;
         private System.Windows.Forms.Label Message;
         private System.Windows.Forms.TextBox SearchText;
         private CustomButton Search;
+        private MetroComboBox EncodingComboBox;
         private BrightIdeasSoftware.FastObjectListView fastObjectListView1;
         private BrightIdeasSoftware.OLVColumn Hash;
         private BrightIdeasSoftware.OLVColumn Value;
